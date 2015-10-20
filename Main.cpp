@@ -9,6 +9,20 @@ using namespace std;
 
 int main(int argc, char **argv)
 {
-  
-  return 0;
+	int numberOfRoters = argc - 2;
+
+	
+	return 0;
+}
+
+int* setConfig(char* fileName) {
+	ifstream config(fileName);
+	int* configuration;
+	int elem;
+	int i = 0;
+	while(file >> elem) {
+		configuration[i] = elem;
+		i++;
+	}
+	return configuration;
 }

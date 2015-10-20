@@ -2,33 +2,18 @@
 #define ABSTRACTGEAR_H
 
 #include<iostream>
+#include <fstream>
 
 class AbstractGear {
     public:
-    	AbstractGear(int*, string);
+    	AbstractGear(ifstream, string);
         virtual char* map(void) = 0;
-        virtual int upperCharToDec(char alphabet) =  (int)alphabet - 65;
-        virtual int lowerCharToDec(char alphabet) = (int)alphabet - 97;
+        virtual int charToDec(char alphabet) =  (int)alphabet - 65;
 
     protected:
-    	int* _sequence;
+    	ifstream _config;
     	char* _input;
-};
-
-class Rotor:public AbstractGear {
-	public:
-		Rotor(int*, string, int);
-		char* map(void);
-		int _ith;
-	private:
-		void rotate(void);
-		int retrieveNextSeq(int);
-};
-
-class PlugBoard:public AbstractGear {
-	public:
-		PlugBoard(int*, string);
-		char* map(void);
+    	int _inputLength;
 };
 
 #endif
