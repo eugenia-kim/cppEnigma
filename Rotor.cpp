@@ -8,7 +8,11 @@ Rotor::Rotor(int* config, string input, int ith) {
 
 char* Rotor::map() {
 	char*& inputRef = _input;
+	int rotateIndex = pow(26, _ith);
 	for(int i = 0; i<_inputlength; i++) {
+		if(i%rotateIndex == 0) {
+			rotate();
+		}
 		char token = charToDec(intputRef[i]);
 		inputRef[i] = (char)(retrieveNextSeq(token));
 	}
