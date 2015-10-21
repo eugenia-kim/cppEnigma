@@ -20,7 +20,7 @@ int* setConfig(char* fileName) {
 	int* configuration;
 	int elem;
 	int i = 0;
-	while(file >> elem) {
+	while(config >> elem) {
 		configuration[i] = elem;
 		i++;
 	}

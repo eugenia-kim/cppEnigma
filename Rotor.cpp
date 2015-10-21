@@ -1,6 +1,6 @@
 #include "Rotor.hpp"
 
-Rotor::Rotor(int* config, string input, int ith) {
+Rotor::Rotor(int* config, char* input, int ith):AbstractGear(config, input) {
 	_config = config;
 	_input = input;
 	_ith = ith;
@@ -9,18 +9,19 @@ Rotor::Rotor(int* config, string input, int ith) {
 char* Rotor::map() {
 	char*& inputRef = _input;
 	int rotateIndex = pow(26, _ith);
-	for(int i = 0; i<_inputlength; i++) {
+	for(int i = 0; i<_inputLength; i++) {
 		if(i%rotateIndex == 0) {
 			rotate();
 		}
-		char token = charToDec(intputRef[i]);
+		char token = charToDec(inputRef[i]);
 		inputRef[i] = (char)(retrieveNextSeq(token));
 	}
+	return inputRef;
 }
 
 void Rotor::rotate() {
 	char*& inputRef = _input;
-	for(int i = 0; i<_inputlength; i++) {
+	for(int i = 0; i<_inputLength; i++) {
 		inputRef[i] = (char)((int)inputRef[i] + 1);
 	}
 }

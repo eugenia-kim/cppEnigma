@@ -6,7 +6,7 @@
 
 class Rotor:public AbstractGear {
 	public:
-		Rotor(int*, string, int);
+		Rotor(int*, char*, int);
 		char* map(void);
 		int _ith;
 	private:

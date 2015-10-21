@@ -1,17 +1,20 @@
 #ifndef ABSTRACTGEAR_H
 #define ABSTRACTGEAR_H
 
-#include<iostream>
+#include <iostream>
 #include <fstream>
+
+using namespace std;
 
 class AbstractGear {
     public:
-    	AbstractGear(ifstream, string);
+    	AbstractGear(int*, string);
         virtual char* map(void) = 0;
-        virtual int charToDec(char alphabet) =  (int)alphabet - 65;
+        virtual int charToDec(char alphabet);
+
 
     protected:
-    	ifstream _config;
+    	int* _config;
     	char* _input;
     	int _inputLength;
 };
