@@ -1,10 +1,9 @@
 #include "PlugBoard.hpp"
 
-PlugBoard::PlugBoard(int* config, char* input):AbstractGear(config, input) {
+PlugBoard::PlugBoard(int* config):AbstractGear(config) {
 	_config = config;
-	_input = input;
 }
 
-char* PlugBoard::map(void) {
-	return _input;
+char PlugBoard::map(char letter) {
+	return 'a';
 }

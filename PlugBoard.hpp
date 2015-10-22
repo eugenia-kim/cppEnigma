@@ -5,8 +5,8 @@
 
 class PlugBoard:public AbstractGear {
 	public:
-		PlugBoard(int*, char*);
-		char* map(void);
+		PlugBoard(int*);
+		char map(char);
 };
 
 #endif

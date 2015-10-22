@@ -8,15 +8,15 @@ using namespace std;
 
 class AbstractGear {
     public:
-    	AbstractGear(int* config, char* input);
-        virtual char* map() = 0;
+    	AbstractGear(int* config);
+        virtual char map(char) = 0;
         virtual int charToDec(char letter);
+        virtual char intToChar(int number);
 
 
     protected:
     	int* _config;
-    	char* _input;
-    	int _inputLength;
+    	char _input;
 };
 
 #endif

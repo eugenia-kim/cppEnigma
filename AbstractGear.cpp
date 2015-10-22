@@ -2,12 +2,14 @@
 
 using namespace std;
 
-AbstractGear::AbstractGear(int* config, char* input) {
+AbstractGear::AbstractGear(int* config) {
 	_config = config;
-	_input = input;
-	_inputLength = sizeof(_input)/sizeof(char);
 }
 
 int AbstractGear::charToDec(char letter) {
 	 return  ((int) letter) - 65;
+}
+
+char AbstractGear::intToChar(int number) {
+	 return  (char) (number + 65);
 }

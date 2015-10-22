@@ -6,12 +6,12 @@
 
 class Rotor:public AbstractGear {
 	public:
-		Rotor(int*, char*, int);
-		char* map(void);
-		int _ith;
+		Rotor(int*);
+		char map(char);
 	private:
-		void rotate(void);
-		int retrieveNextSeq(int);
+		int rotateFreq;
+		void rotate();
+		bool shouldRotate();
 };
 
 #endif
