@@ -1,22 +1,23 @@
 # edit this makefile so that running make compiles your enigma program
 
 CXX = g++
-CC = g++
-CXXFLAGS =  -pedantic -Wall -Werror -std=c++11 -g 
+#CC = g++
+CXXFLAGS = -pedantic -Wall -Werror -std=c++11 -g 
 
-all: PlugBoard.o  Rotor.o Main.o enigma
+all: PlugBoard.o Rotor.o Main.o enigma
 
 enigma: Main.o
-	g++ -o enigma Main.o
 
 Main.o: Main.cpp
-	g++ -c Main.cpp
 
-Rotor.o: AbstractGear.hpp Rotor.cpp Rotor.hpp
-	g++ -c AbstractGear.hpp Rotor.cpp Rotor.hpp
-	
-PlugBoard.o: AbstractGear.hpp PlugBoard.cpp PlugBoard.hpp
-	g++ -c AbstractGear.hpp PlugBoard.cpp PlugBoard.hpp
+Test: Test.cpp AbstractGear.o Rotor.o PlugBoard.o 
+
+AbstractGear.o: AbstractGear.hpp
+
+PlugBoard.o: AbstractGear.hpp PlugBoard.hpp
+
+Rotor.o: AbstractGear.hpp Rotor.hpp 
+
 clean:
 	rm -rf enigma *.o
 

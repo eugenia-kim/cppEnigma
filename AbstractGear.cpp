@@ -8,6 +8,6 @@ AbstractGear::AbstractGear(int* config, char* input) {
 	_inputLength = sizeof(_input)/sizeof(char);
 }
 
-int AbstractGear::charToDec(char alphabet) {
-	 return  (int)alphabet - 65;
+int AbstractGear::charToDec(char letter) {
+	 return  ((int) letter) - 65;
 }

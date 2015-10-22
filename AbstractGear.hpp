@@ -8,9 +8,9 @@ using namespace std;
 
 class AbstractGear {
     public:
-    	AbstractGear(int*, string);
-        virtual char* map(void) = 0;
-        virtual int charToDec(char alphabet);
+    	AbstractGear(int* config, char* input);
+        virtual char* map() = 0;
+        virtual int charToDec(char letter);
 
 
     protected:
