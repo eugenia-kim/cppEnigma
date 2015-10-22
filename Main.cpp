@@ -28,10 +28,13 @@ int main(int argc, char **argv)
 		for(int i = 2; i >= 0; i--) {
 			input = rotorArray[0].map(input);
 		}
+		
+		int i = 0;
+		do {
+			rotateArray[i]->rotate();
+		} while (i < numberOfRotors && rotateArray[i++]->rotateNext)
 */
-		// for(int = 0; i < numberOfRoters; i++) {
-
-		// }
+		
 
 	}
 	return 0;

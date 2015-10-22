@@ -9,9 +9,9 @@ class Rotor:public AbstractGear {
 		Rotor(int*);
 		char map(char);
 	private:
-		int rotateFreq;
+		int rotateCounter;
 		void rotate();
-		bool shouldRotate();
+		bool rotateNext;
 };
 
 #endif

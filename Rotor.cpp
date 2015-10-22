@@ -4,7 +4,8 @@ using namespace std;
 
 Rotor::Rotor(int* config):AbstractGear(config) {
 	_config = config;
-	rotateFreq = 0;
+	rotateCounter = 0;
+	rotateNext = false;
 }
 
 // char* Rotor::map() {
@@ -22,12 +23,12 @@ Rotor::Rotor(int* config):AbstractGear(config) {
 // 	return inputRef;
 // }
 
-bool Rotor::shouldRotate() {
-	return (rotateFreq == 26);
-}
-
 void Rotor::rotate() {
-	rotateFreq = (rotateFreq + 1)%26;
+	rotateCounter = rotateCounter + 1;
+	if(rotateCounter == 26) {
+		rotateNext = true;
+		rotateCounter = 0;
+	}
 }
 
 // void Rotor::rotate() {
