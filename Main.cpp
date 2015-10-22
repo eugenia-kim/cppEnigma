@@ -40,14 +40,4 @@ int main(int argc, char **argv)
 	return 0;
 }
 
-int* setConfig(char* fileName) {
-	ifstream config(fileName);
-	int* configuration = new int[26];
-	int elem;
-	int i = 0;
-	while(config >> elem) {
-		configuration[i] = elem;
-		i++;
-	}
-	return configuration;
-}
+
