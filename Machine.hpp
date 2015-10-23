@@ -10,5 +10,5 @@ class Machine {
     void decrypt();
   private:
     std::unique_ptr<Plugboard> pb;
-    int* setConfig(char*);
+    std::vector<int> setConfig(char*);
 };

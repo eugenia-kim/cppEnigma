@@ -1,6 +1,6 @@
 #include "Plugboard.hpp"
 #include <iostream>
-  Plugboard::Plugboard(int* config):AbstractGear(config) {
+  Plugboard::Plugboard(std::vector<int> config):AbstractGear(config) {
     _config = config;
   }
 
@@ -10,15 +10,8 @@
   
   int Plugboard::map(int input) {
     
-      //for(int i = 0; i < 10; i++) {
-	//std::cout << _config[i] <<std::endl;
-      //}
-      
-    std::cout << countArray(_config) <<std::endl;
-      for(int i = 0; i < countArray(_config); i++) {
-	std::cout << "im in the loop" <<std::endl;
+      for(int i = 0; i < (int)_config.size(); i++) {
 	if(_config[i] == input) {
-	  std::cout << _config[i] <<std::endl;
 	  if(i%2 == 0) {
 	    return _config[i+1];
 	  } else {

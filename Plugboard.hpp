@@ -5,7 +5,7 @@
 
 class Plugboard:public AbstractGear {
     public:
-	Plugboard(int*);
+	Plugboard(std::vector<int>);
         int map(int);
 	int countArray(int*);
 };

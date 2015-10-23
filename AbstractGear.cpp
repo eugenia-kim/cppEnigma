@@ -1,6 +1,6 @@
 #include "AbstractGear.hpp"
 
-  AbstractGear::AbstractGear(int* config) {
+  AbstractGear::AbstractGear(std::vector<int> config) {
     _config = config;
   }
   
