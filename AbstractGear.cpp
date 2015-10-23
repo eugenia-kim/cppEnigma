@@ -1,4 +1,6 @@
 #include "AbstractGear.hpp"
 
-using namespace std;
-
+  AbstractGear::AbstractGear(int* config) {
+    _config = config;
+  }
+  

@@ -1,6 +1,4 @@
-#include "AbstractGear.hpp"
-
-class Reflector:public AbstractGear {
-    public:    
+class Reflector {
+    public:
         int map(int);
 };

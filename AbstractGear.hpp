@@ -1,11 +1,12 @@
 #ifndef ABSTRACTGEAR_H
 #define ABSTRACTGEAR_H
 
-using namespace std;
-
 class AbstractGear {
-    public:
-        virtual int map(int) = 0;
+  public:
+    AbstractGear(int*);
+    virtual int map(int) = 0;
+  protected:
+    int* _config;
 };
 
 #endif
