@@ -4,6 +4,6 @@ PlugBoard::PlugBoard(int* config):AbstractGear(config) {
 	_config = config;
 }
 
-char PlugBoard::map(char letter) {
-	return 'a';
+int PlugBoard::map(int letter) {
+	return 0;
 }

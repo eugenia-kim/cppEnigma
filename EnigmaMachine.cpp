@@ -1,15 +1,25 @@
 #include "EnigmaMachine.hpp"
+#include "Reflector.hpp"
 
-EnigmaMachine::EnigmaMachine(int argc, char** argv) {
-    _argc = argc;
-    _argv = argv;
-    plugboard = make_unique(argv[argc-1]);
-    rotorReflector = make_unique(argc, argv);
-   //plugboard = std::unique_ptr<Plugboard>(new Plugboard());
+#include <iostream>
+
+using namespace std;
+
+EnigmaMachine::EnigmaMachine() {}
+
+EnigmaMachine::EnigmaMachine(list<Rotor> rotors, PlugBoard& plugboard) 
+  : _plugboard(&plugboard), _rotors(rotors)
+{   
+    //plugboard = std::unique_ptr<Plugboard>(new Plugboard());
 }
 
-std::string EnigmaMachine::decrpyt(std::string input) {
-    string decodedByPB = plugboard->map(input);
-    string decodedByRR = rotorReflector->map(decodedByPB);
-    string decodedStr = plugboard->map(decodedByRR);
+void EnigmaMachine::decrypt() {
+   Reflector* reflector = new Reflector();
+    char input;
+    while(cin >> ws >> input) {
+        int num = (int)(input - 'A');
+        char out = (char) (reflector->map(num) + 'A');
+        std::cout << out;
+    }
+    //delete reflector;
 }

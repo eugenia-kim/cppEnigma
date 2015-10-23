@@ -38,8 +38,8 @@ void Rotor::rotate() {
 // 	}
 // }
 
-char Rotor::map(char letter) {
-	int inputNum = charToDec(letter);
+int Rotor::map(int letter) {
+/*	int inputNum = charToDec(letter);
 	inputNum += rotateFreq; 
 	int index;
 	for(int i = 0; i < 26; i++) {
@@ -50,4 +50,6 @@ char Rotor::map(char letter) {
 	}
 	rotateFreq++;
 	return intToChar((index + 1)%26);
+*/
+    return 0;
 }

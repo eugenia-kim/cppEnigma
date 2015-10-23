@@ -6,7 +6,7 @@
 class PlugBoard:public AbstractGear {
 	public:
 		PlugBoard(int*);
-		char map(char);
+		int map(int);
 };
 
 #endif

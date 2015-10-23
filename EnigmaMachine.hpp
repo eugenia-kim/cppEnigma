@@ -1,14 +1,14 @@
-#include <string>
-#include "RotorReflector.hpp"
+#include <list>
+#include <memory>
 #include "PlugBoard.hpp"
+#include "Rotor.hpp"
 
 class EnigmaMachine {
     public:
-        EnigmaMachine(int, char**);
+        EnigmaMachine();
+        EnigmaMachine(std::list<Rotor>, PlugBoard&);
+        void decrypt();
     private:
-        int _argc;
-        char** _argv;
-        std::unique_ptr<PlugBoard> plugboard;
-        std::unique_ptr<RotorReflector> rotorReflector;
-        std::string decrypt(std::string);
-}
+        PlugBoard* _plugboard;
+        list<Rotor> _rotors;
+};
