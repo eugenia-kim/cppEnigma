@@ -31,10 +31,9 @@ void Machine::decrypt() {
     char input;
     while(cin >> ws >> input) {
         int num = (int)(input - 'A');
-	char pb1 = pb->map(num) + A;
-        //int rf = reflector->map(pb1);
-	//char pb2 = (char)(pb->map(rf) + A);
-        //cout << pb2;
-	cout << pb1;
+	int pb1 = pb->map(num) + A;
+        int rf = reflector->map(pb1);
+	char pb2 = (char)(pb->map(rf) + A);
+        cout << pb2;
     }
 }
