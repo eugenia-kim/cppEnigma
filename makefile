@@ -6,7 +6,7 @@ CXXFLAGS = -pedantic -Wall -Werror -std=c++11 -g
 
 all: enigma
 
-enigma: AbstractGear.o Plugboard.o Reflector.o Machine.o enigma.o
+enigma: AbstractGear.o Plugboard.o Reflector.o Rotor.o Machine.o enigma.o
 	$(CXX) -o $@ $(CXXFLAGS) $+
 
 %.o: %.cpp

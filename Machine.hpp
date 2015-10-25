@@ -1,14 +1,18 @@
-#include <list>
+#include <vector>
 #include <memory>
 #include <fstream>
 
 #include "Plugboard.hpp"
+#include "Rotor.hpp"
 
 class Machine {
   public:
-    Machine(char*);
+    Machine(std::vector<char*>, char*);
     void decrypt();
   private:
+    int numRotors;
     std::unique_ptr<Plugboard> pb;
-    std::vector<int> setConfig(char*);
+    std::vector<std::unique_ptr<Rotor>> rotors;
+    std::vector<int> setConfigPB(char*);
+    std::vector<std::vector<int>> setConfigRotors(std::vector<char*> rotorFile);
 };
