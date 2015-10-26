@@ -15,4 +15,5 @@ class Machine {
     std::vector<std::unique_ptr<Rotor>> rotors;
     std::vector<int> setConfigPB(char*);
     std::vector<std::vector<int>> setConfigRotors(std::vector<char*> rotorFile);
+    bool isUpper(char);
 };

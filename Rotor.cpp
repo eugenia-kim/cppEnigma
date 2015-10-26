@@ -1,5 +1,4 @@
 #include "Rotor.hpp"
-#include <iostream>
 
 #define ALPHA 26
 

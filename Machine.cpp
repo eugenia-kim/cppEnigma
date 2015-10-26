@@ -66,39 +66,40 @@ void Machine::decrypt() {
     unique_ptr<Reflector> reflector (new Reflector());
     char input;
     while(cin >> ws >> input) {
+      
+	if(!isUpper(input)) {
+	  cerr << "Only upper cases please" << endl;
+	  exit(1);
+	}
+	
         int num = (int)(input - 'A');
         int pb1 = pb->map(num);
-        //char out = (char)(pb1);
-	//cout << "after the first pb: " << pb1 << endl;
 	
 	for(int j = 0; j < numRotors; j++) {
 	  pb1 = rotors[j]->map(pb1);
-	  //cout << "after the "<< j << " rotor: " << pb1 << endl;
 	}
 	
         int rf = reflector->map(pb1);
-	//cout << "after the reflector: " << rf << endl;
 	
 	for(int k = numRotors - 1; k >= 0; k--) {
 	  rf = rotors[k]->reverseMap(rf);
-	  //cout << "after the "<< k << " rotor: " << rf << endl;
 	}
 	
 	char pb2 = (char)(pb->map(rf) + A);
-	//cout << "after the last pb: " << pb2 << endl;
 	
 	int i = 0;
 	
 	do {
-	  if (i == numRotors) {
-	    break;
-	  } else {
+	  if (i != numRotors) {
 	    rotors[i]->rotate();
 	  }
 	} while (i < numRotors && rotors[i++]->rotateNext);
 	
+	
         cout << pb2;
-	//cout << "===========================================" << endl;
-        //cout << out;
     }
+}
+
+bool Machine::isUpper(char c) {
+  return 'A' <= c && c<= 'Z';
 }
