@@ -7,6 +7,7 @@ class Rotor:public AbstractGear {
   public:
     Rotor(std::vector<int>);
     int map(int);
+    int reverseMap(int);
     void rotate();
     int counter;
     bool rotateNext;

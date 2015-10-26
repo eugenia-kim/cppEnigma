@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <stdexcept>
 #include <memory>
 #include <vector>
 
@@ -26,7 +27,13 @@ Machine::Machine(vector<char*> rotorFile, char* pbFile) {
 }
 
 vector<int> Machine::setConfigPB(char* fileName) {
-  ifstream config(fileName);
+  
+  ifstream config;
+  config.open(fileName);
+  if(!config.good()) {
+      throw 56;
+  }
+  
   vector<int> configuration;
   int elem;
   while(config >> elem) {
@@ -38,7 +45,13 @@ vector<int> Machine::setConfigPB(char* fileName) {
 vector<vector<int>> Machine::setConfigRotors(vector<char*> rotorFile) {
   vector<vector<int>> rotorConfigVector;
   for(int i = 0; i < numRotors; i++) {
-    ifstream config(rotorFile[i]);
+    
+    ifstream config;
+    config.open(rotorFile[i]);
+    if(!config.good()) {
+      throw 56;
+    }
+    
     vector<int> configuration;
     int elem;
     while(config >> elem) {
@@ -56,31 +69,36 @@ void Machine::decrypt() {
         int num = (int)(input - 'A');
         int pb1 = pb->map(num);
         //char out = (char)(pb1);
-	cout << "after the first pb: " << pb1 << endl;
+	//cout << "after the first pb: " << pb1 << endl;
 	
 	for(int j = 0; j < numRotors; j++) {
 	  pb1 = rotors[j]->map(pb1);
-	  cout << "after the "<< j << " rotor: " << pb1 << endl;
+	  //cout << "after the "<< j << " rotor: " << pb1 << endl;
 	}
 	
         int rf = reflector->map(pb1);
-	cout << "after the reflector: " << rf << endl;
+	//cout << "after the reflector: " << rf << endl;
 	
-	for(int k = 3; k < numRotors; k--) {
-	  rf = rotors[k]->map(rf);
-	  cout << "after the "<< k << " rotor: " << rf << endl;
+	for(int k = numRotors - 1; k >= 0; k--) {
+	  rf = rotors[k]->reverseMap(rf);
+	  //cout << "after the "<< k << " rotor: " << rf << endl;
 	}
 	
 	char pb2 = (char)(pb->map(rf) + A);
-	cout << "after the last pb: " << pb2 << endl;
+	//cout << "after the last pb: " << pb2 << endl;
 	
 	int i = 0;
 	
 	do {
-	  rotors[i]->rotate();
+	  if (i == numRotors) {
+	    break;
+	  } else {
+	    rotors[i]->rotate();
+	  }
 	} while (i < numRotors && rotors[i++]->rotateNext);
 	
         cout << pb2;
+	//cout << "===========================================" << endl;
         //cout << out;
     }
 }

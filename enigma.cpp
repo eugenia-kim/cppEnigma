@@ -12,8 +12,8 @@ using namespace std;
 
 int main(int argc, char **argv) {
 
-    if(argc < 1) {
-        //error
+    if(argc < 2) {
+        cerr << "not enough arguments" << endl;
     }
     
     char* pbFileName;

@@ -1,4 +1,5 @@
 #include "Rotor.hpp"
+#include <iostream>
 
 #define ALPHA 26
 
@@ -12,8 +13,22 @@ Rotor::Rotor(vector<int> config):AbstractGear(config) {
 
 int Rotor::map(int num) {
   int input = (num + counter)%ALPHA;
-  int addOrSub = _config[input] - input;
-  return (num + addOrSub)%ALPHA;
+  int output = _config[input];
+  return (output - counter + ALPHA)%ALPHA;
+}
+
+int Rotor::reverseMap(int num) {
+  int input = (num + counter)%ALPHA;
+  
+  int output;
+  for(int i = 0; i < ALPHA; i++) {
+    if(_config[i] == input) {
+     
+      output = i;
+      break;
+    }
+  }
+  return (output - counter + ALPHA)%ALPHA;
 }
 
 void Rotor::rotate() {
