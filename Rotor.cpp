@@ -1,7 +1,5 @@
 #include "Rotor.hpp"
 
-#define ALPHA 26
-
 using namespace std;
 
 Rotor::Rotor(vector<int> config):AbstractGear(config) {

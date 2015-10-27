@@ -1,6 +1,8 @@
 #ifndef ROTOR_H
 #define ROTOR_H
 
+#define ALPHA 26
+
 #include "AbstractGear.hpp"
 
 class Rotor:public AbstractGear {

@@ -7,9 +7,6 @@
 #include "Machine.hpp"
 #include "Reflector.hpp"
 
-#define A 65
-#define ALPHA 26
-
 using namespace std;
 
 Machine::Machine(vector<char*> rotorFile, char* pbFile) {

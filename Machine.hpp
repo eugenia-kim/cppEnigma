@@ -1,6 +1,9 @@
 #ifndef MACHINE_H
 #define MACHINE_H
 
+#define A 65
+#define ALPHA 26
+
 #include <vector>
 #include <memory>
 #include <fstream>

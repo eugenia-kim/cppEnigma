@@ -7,7 +7,6 @@ class Plugboard:public AbstractGear {
 public:
 	Plugboard(std::vector<int>);
 	int map(int);
-	int countArray(int*);
 };
 
 #endif
