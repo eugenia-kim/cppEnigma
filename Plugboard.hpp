@@ -4,9 +4,9 @@
 #include "AbstractGear.hpp"
 
 class Plugboard:public AbstractGear {
-    public:
+public:
 	Plugboard(std::vector<int>);
-        int map(int);
+	int map(int);
 	int countArray(int*);
 };
 

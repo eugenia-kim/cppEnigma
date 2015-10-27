@@ -2,8 +2,8 @@
 #define REFLECTOR_H
 
 class Reflector {
-    public:
-        int map(int);
+public:
+	int map(int);
 };
 
 #endif
