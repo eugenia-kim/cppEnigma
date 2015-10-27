@@ -8,12 +8,14 @@
 #include "Machine.hpp"
 #include "AbstractGear.hpp"
 
+#define MIN_NUM_ARGC 2
+
 using namespace std;
 
 int main(int argc, char **argv) {
 
 	/* checking if the number of arguments are given correctly */
-	if(argc < 2) {
+	if(argc < MIN_NUM_ARGC) {
 		cerr << "not enough arguments" << endl;
 	}
 
