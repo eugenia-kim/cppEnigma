@@ -1,3 +1,6 @@
+#ifndef MACHINE_H
+#define MACHINE_H
+
 #include <vector>
 #include <memory>
 #include <fstream>
@@ -9,6 +12,7 @@ class Machine {
   public:
     Machine(std::vector<char*>, char*);
     void decrypt();
+    int exit;
   private:
     int numRotors;
     std::unique_ptr<Plugboard> pb;
@@ -17,3 +21,5 @@ class Machine {
     std::vector<std::vector<int>> setConfigRotors(std::vector<char*> rotorFile);
     bool isUpper(char);
 };
+
+#endif

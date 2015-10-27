@@ -1,16 +1,16 @@
-#ifndef ROTOR_H
-#define ROTOR_H
+  #ifndef ROTOR_H
+  #define ROTOR_H
 
-#include "AbstractGear.hpp"
+  #include "AbstractGear.hpp"
 
-class Rotor:public AbstractGear {
-  public:
-    Rotor(std::vector<int>);
-    int map(int);
-    int reverseMap(int);
-    void rotate();
-    int counter;
-    bool rotateNext;
-};
+  class Rotor:public AbstractGear {
+    public:
+      Rotor(std::vector<int>);
+      int map(int);
+      int reverseMap(int);
+      void rotate();
+      int counter;
+      bool rotateNext;
+  };
 
-#endif
+  #endif
