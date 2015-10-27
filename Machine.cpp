@@ -13,6 +13,7 @@
 using namespace std;
 
 Machine::Machine(vector<char*> rotorFile, char* pbFile) {
+  fileNotFound = 0;
   vector<int> configPB = setConfigPB(pbFile);
   pb = unique_ptr<Plugboard>(new Plugboard(configPB));
   numRotors = (int)rotorFile.size();
@@ -31,13 +32,13 @@ vector<int> Machine::setConfigPB(char* fileName) {
   ifstream config;
   config.open(fileName);
   if(!config.good()) {
-      throw 56;
+      fileNotFound = 1;
   }
   
   vector<int> configuration;
   int elem;
   while(config >> elem) {
-    configuration.push_back(elem);
+   configuration.push_back(elem);
   }
   return configuration;
 }
@@ -49,7 +50,7 @@ vector<vector<int>> Machine::setConfigRotors(vector<char*> rotorFile) {
     ifstream config;
     config.open(rotorFile[i]);
     if(!config.good()) {
-      throw 56;
+     fileNotFound = 1;
     }
     
     vector<int> configuration;

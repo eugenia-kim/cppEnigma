@@ -27,9 +27,15 @@ int main(int argc, char **argv) {
 	rotorFileNames.push_back(argv[i]);
       }
     }
-    //cout<<pbFileName<< " " << rotorFileNames.size() << endl;
-    unique_ptr<Machine> enigma (new Machine(rotorFileNames, pbFileName));
-   
+
+    unique_ptr<Machine> enigma;
+    
+
+    enigma = unique_ptr<Machine> (new Machine(rotorFileNames, pbFileName));
+     
+    if(!enigma->fileNotFound) {
     enigma->decrypt();
-    return 0;
+    }
+    
+    return enigma->fileNotFound;
 }
